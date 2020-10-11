@@ -23,13 +23,13 @@ public class LoginPage extends LoginObjectPage {
     WebDriver driver;
     String[][] testdata ;
 
-    @DataProvider(name = "loginData")
+/*    @DataProvider(name = "loginData")
     public Object[] Exceldata() throws IOException {
         testdata=TestDataExcel();
         return testdata ;
-    }
-
-    public String[][] TestDataExcel() throws IOException {
+    }*/
+    @DataProvider(name = "loginData")
+    public Object[] TestDataExcel() throws IOException {
 
         int rowCount, columnCount;
         String excelFilePath = "C:\\GITPROJ\\AutomationFramework\\src\\test\\java\\TestData\\LoginTestdata.xlsx";
@@ -44,7 +44,7 @@ public class LoginPage extends LoginObjectPage {
         /*Below values can be used on Loop if necessary*/
         /*int rowStart = Sheet.getFirstRowNum();*/
         /*int rowEnd = Sheet.getLastRowNum();*/
-        for (int i = 1; i < rowCount; i++) {
+        for (int i = 1; i < rowCount; i++) {  /*we are starting from first row so i=1,since first row is header*/
             Row row = Sheet.getRow(i);
             for (int j = 0; j <columnCount; j++) {
                 Cell cell = row.getCell(j);
@@ -103,15 +103,3 @@ public class LoginPage extends LoginObjectPage {
     }
 
 }
-/*
-class PropertiesLoader {
-    public static Properties loadProperties(String resourceFileName) throws IOException {
-        Properties configuration = new Properties();
-        InputStream inputStream = PropertiesLoader.class
-                .getClassLoader()
-                .getResourceAsStream(resourceFileName);
-        configuration.load(inputStream);
-        inputStream.close();
-        return configuration;
-    }
-}*/
