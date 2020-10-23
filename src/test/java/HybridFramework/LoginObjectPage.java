@@ -11,5 +11,7 @@ public class LoginObjectPage {
     public static WebElement password;
     @FindBy(name="Submit")
     public static WebElement LoginButton ;
+    @FindBy(xpath = "//span[@id='spanMessage']")
+    public static WebElement Failuremessage;
 
 }
